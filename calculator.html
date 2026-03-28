@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pest Control Business Valuation Calculator | The Arena Partners</title>
+<meta name="description" content="Free pest control business valuation calculator. Get an estimate based on your revenue, recurring contracts, service mix, and owner dependency.">
+<meta name="keywords" content="pest control business valuation calculator, how much is my pest control company worth, pest control business value">
+<link rel="canonical" href="https://vivianashford.github.io/satellite-pest-control/calculator.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SDMM90P63D"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SDMM90P63D');</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Pest Control Business Valuation Calculator",
+  "description": "Free calculator to estimate the value of your pest control business based on revenue, recurring contracts, service mix, and owner dependency.",
+  "applicationCategory": "BusinessApplication",
+  "provider": {
+    "@type": "Organization",
+    "name": "The Arena Partners",
+    "url": "https://thearenapartners.com"
+  }
+}
+</script>
+</head>
+<body style="margin:0;padding:0;background:#0a0a0a;color:#f0f0f0;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased;">
+
+<!-- HERO -->
+<section style="padding:60px 24px 32px;max-width:720px;margin:0 auto;text-align:center;">
+  <p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#C9A84C;">Step 2 of 3</p>
+  <h1 style="margin:0 0 12px;font-size:clamp(28px,5vw,44px);font-weight:900;letter-spacing:-0.03em;line-height:1.1;color:#f0f0f0;">Pest Control Valuation Calculator</h1>
+  <p style="margin:0;font-size:17px;color:#999;max-width:560px;margin-left:auto;margin-right:auto;">Enter your numbers below. We'll calculate your estimated valuation using pest-control-specific multiples - the highest in all of service trades.</p>
+</section>
+
+<!-- CALCULATOR -->
+<section style="padding:24px 24px 40px;max-width:640px;margin:0 auto;">
+  <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:2px;padding:36px 28px;">
+
+    <form id="calcForm" onsubmit="return false;" style="display:flex;flex-direction:column;gap:24px;">
+
+      <!-- Service Type -->
+      <div>
+        <label for="serviceType" style="display:block;margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;">Service Type</label>
+        <select id="serviceType" style="width:100%;box-sizing:border-box;padding:14px 16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;color:#f0f0f0;font-size:17px;font-family:inherit;min-height:48px;outline:none;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url('data:image/svg+xml;utf8,<svg fill=\'%23999\' xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\'><path d=\'M7 10l5 5 5-5z\'/></svg>');background-repeat:no-repeat;background-position:right 12px center;background-size:20px;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#2a2a2a'">
+          <option value="general">General Pest</option>
+          <option value="termite">Termite / Wood-Destroying</option>
+          <option value="wildlife">Wildlife</option>
+          <option value="lawn">Lawn Care + Pest</option>
+          <option value="commercial">Commercial</option>
+          <option value="mixed" selected>Mixed / Multi-Service</option>
+        </select>
+      </div>
+
+      <!-- Annual Revenue -->
+      <div>
+        <label for="revenue" style="display:block;margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;">Annual Revenue ($)</label>
+        <input type="text" id="revenue" inputmode="numeric" placeholder="e.g. 3,500,000" required style="width:100%;box-sizing:border-box;padding:14px 16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;color:#f0f0f0;font-size:17px;font-family:'JetBrains Mono',monospace;min-height:48px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#2a2a2a'" oninput="formatRevenue(this)">
+      </div>
+
+      <!-- EBITDA Margin Slider -->
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin:0 0 8px;">
+          <label for="ebitda" style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;">EBITDA Margin (Your Profit After Expenses)</label>
+          <span id="ebitdaVal" style="font-family:'JetBrains Mono',monospace;font-weight:500;color:#C9A84C;font-size:17px;">20%</span>
+        </div>
+        <input type="range" id="ebitda" min="5" max="35" value="20" style="width:100%;height:6px;-webkit-appearance:none;appearance:none;background:#2a2a2a;border-radius:3px;outline:none;cursor:pointer;" oninput="document.getElementById('ebitdaVal').textContent=this.value+'%'">
+        <div style="display:flex;justify-content:space-between;margin:4px 0 0;">
+          <span style="color:#666;font-size:12px;">5%</span>
+          <span style="color:#666;font-size:12px;">35%</span>
+        </div>
+      </div>
+
+      <!-- Recurring Revenue Slider -->
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin:0 0 8px;">
+          <label for="recurring" style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;">Recurring Revenue %</label>
+          <span id="recurringVal" style="font-family:'JetBrains Mono',monospace;font-weight:500;color:#C9A84C;font-size:17px;">60%</span>
+        </div>
+        <input type="range" id="recurring" min="0" max="100" value="60" step="5" style="width:100%;height:6px;-webkit-appearance:none;appearance:none;background:#2a2a2a;border-radius:3px;outline:none;cursor:pointer;" oninput="document.getElementById('recurringVal').textContent=this.value+'%'">
+        <div style="display:flex;justify-content:space-between;margin:4px 0 0;">
+          <span style="color:#666;font-size:12px;">0%</span>
+          <span style="color:#666;font-size:12px;">100%</span>
+        </div>
+      </div>
+
+      <!-- Number of Routes/Techs -->
+      <div>
+        <label for="routes" style="display:block;margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;">Number of Routes / Technicians</label>
+        <input type="number" id="routes" inputmode="numeric" placeholder="e.g. 12" min="1" max="500" style="width:100%;box-sizing:border-box;padding:14px 16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;color:#f0f0f0;font-size:17px;font-family:'JetBrains Mono',monospace;min-height:48px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#2a2a2a'">
+      </div>
+
+      <!-- Owner Role -->
+      <div>
+        <label style="display:block;margin:0 0 10px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;">Owner's Role in the Business</label>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <label style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;cursor:pointer;min-height:48px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#3a3a3a'" onmouseout="this.style.borderColor='#2a2a2a'">
+            <input type="radio" name="ownerRole" value="dependent" style="width:18px;height:18px;accent-color:#C9A84C;cursor:pointer;">
+            <div>
+              <span style="color:#f0f0f0;font-size:16px;">Runs day-to-day operations</span>
+              <span style="display:block;color:#666;font-size:13px;">Routes, sales, hiring, customer calls</span>
+            </div>
+          </label>
+          <label style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;cursor:pointer;min-height:48px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#3a3a3a'" onmouseout="this.style.borderColor='#2a2a2a'">
+            <input type="radio" name="ownerRole" value="key" checked style="width:18px;height:18px;accent-color:#C9A84C;cursor:pointer;">
+            <div>
+              <span style="color:#f0f0f0;font-size:16px;">Makes key decisions only</span>
+              <span style="display:block;color:#666;font-size:13px;">Strategy, large accounts, hiring managers</span>
+            </div>
+          </label>
+          <label style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;cursor:pointer;min-height:48px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#3a3a3a'" onmouseout="this.style.borderColor='#2a2a2a'">
+            <input type="radio" name="ownerRole" value="independent" style="width:18px;height:18px;accent-color:#C9A84C;cursor:pointer;">
+            <div>
+              <span style="color:#f0f0f0;font-size:16px;">Business runs without me</span>
+              <span style="display:block;color:#666;font-size:13px;">Management team handles everything</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Service Area -->
+      <div>
+        <label for="serviceArea" style="display:block;margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;">Service Area</label>
+        <select id="serviceArea" style="width:100%;box-sizing:border-box;padding:14px 16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;color:#f0f0f0;font-size:17px;font-family:inherit;min-height:48px;outline:none;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url('data:image/svg+xml;utf8,<svg fill=\'%23999\' xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\'><path d=\'M7 10l5 5 5-5z\'/></svg>');background-repeat:no-repeat;background-position:right 12px center;background-size:20px;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#2a2a2a'">
+          <option value="single">Single Metro Area</option>
+          <option value="multi-city" selected>Multi-City</option>
+          <option value="multi-state">Multi-State</option>
+        </select>
+      </div>
+
+      <!-- Calculate Button -->
+      <button type="button" onclick="calculate()" style="width:100%;padding:18px 32px;background:#C9A84C;color:#0a0a0a;font-weight:700;font-size:18px;font-family:inherit;border:none;border-radius:2px;cursor:pointer;min-height:52px;margin:8px 0 0;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 4px 16px rgba(201,168,76,0.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">Calculate My Valuation →</button>
+    </form>
+  </div>
+</section>
+
+<!-- RESULTS (hidden until calculated) -->
+<section id="results" style="display:none;padding:0 24px 40px;max-width:640px;margin:0 auto;">
+  <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:2px;padding:40px 28px;text-align:center;">
+    <p style="margin:0 0 8px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#C9A84C;">Your Estimated Valuation</p>
+    <p id="valuationRange" style="margin:0 0 8px;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(32px,6vw,48px);color:#f0f0f0;letter-spacing:-0.02em;"></p>
+    <p id="multipleRange" style="margin:0 0 32px;color:#999;font-size:15px;"></p>
+
+    <!-- Breakdown -->
+    <div id="breakdown" style="text-align:left;margin:0 0 32px;"></div>
+
+    <!-- Adjustments -->
+    <div id="adjustments" style="text-align:left;margin:0 0 40px;"></div>
+
+    <!-- Route density note -->
+    <div id="routeNote" style="display:none;padding:16px;background:#141414;border-left:3px solid #C9A84C;border-radius:2px;margin:0 0 40px;text-align:left;">
+      <p id="routeNoteText" style="margin:0;color:#999;font-size:15px;"></p>
+    </div>
+
+    <!-- NAME + PHONE GATE -->
+    <div style="border-top:1px solid #2a2a2a;padding:40px 0 0;margin:0;">
+      <h3 style="margin:0 0 8px;font-size:22px;font-weight:800;letter-spacing:-0.02em;text-align:center;">Want to Learn How to Increase This Number?</h3>
+      <p style="margin:0 0 24px;color:#999;font-size:15px;text-align:center;">Unlock the free training - 3 steps to maximize your pest control exit.</p>
+
+      <form id="upgradeForm" onsubmit="return handleUpgrade(event)" style="display:flex;flex-direction:column;gap:14px;">
+        <input type="hidden" name="source" value="satellite-pest-control">
+        <input type="hidden" name="step" value="training-unlock">
+        <input type="hidden" name="redirect" value="training.html">
+        <input type="hidden" id="hiddenValuation" name="valuation" value="">
+
+        <div>
+          <label for="fullName" style="display:block;margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;">Full Name</label>
+          <input type="text" id="fullName" name="name" required autocomplete="name" placeholder="John Smith" style="width:100%;box-sizing:border-box;padding:14px 16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;color:#f0f0f0;font-size:17px;font-family:inherit;min-height:48px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#2a2a2a'">
+        </div>
+
+        <div>
+          <label for="phone" style="display:block;margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="(555) 123-4567" style="width:100%;box-sizing:border-box;padding:14px 16px;background:#141414;border:1px solid #2a2a2a;border-radius:2px;color:#f0f0f0;font-size:17px;font-family:inherit;min-height:48px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#C9A84C'" onblur="this.style.borderColor='#2a2a2a'">
+        </div>
+
+        <button type="submit" id="upgradeBtn" style="width:100%;padding:16px 32px;background:#C9A84C;color:#0a0a0a;font-weight:700;font-size:17px;font-family:inherit;border:none;border-radius:2px;cursor:pointer;min-height:48px;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 4px 16px rgba(201,168,76,0.3)'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">Unlock the Free Training →</button>
+
+        <p style="margin:0;text-align:center;color:#666;font-size:13px;">We'll never share your information. Unsubscribe anytime.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding:32px 24px;text-align:center;border-top:1px solid #2a2a2a;">
+  <p style="margin:0;color:#666;font-size:13px;">&copy; 2025 The Arena Partners. All rights reserved.</p>
+</footer>
+
+<script>
+function formatRevenue(el){
+  var v=el.value.replace(/[^0-9]/g,'');
+  if(v){el.value='$'+Number(v).toLocaleString();}
+  else{el.value='';}
+}
+
+function parseRevenue(){
+  var v=document.getElementById('revenue').value.replace(/[^0-9]/g,'');
+  return parseInt(v)||0;
+}
+
+function calculate(){
+  var revenue=parseRevenue();
+  if(!revenue||revenue<50000){alert('Please enter your annual revenue.');return;}
+
+  var ebitdaPct=parseInt(document.getElementById('ebitda').value)/100;
+  var recurringPct=parseInt(document.getElementById('recurring').value);
+  var serviceType=document.getElementById('serviceType').value;
+  var ownerRole=document.querySelector('input[name="ownerRole"]:checked').value;
+  var serviceArea=document.getElementById('serviceArea').value;
+  var routes=parseInt(document.getElementById('routes').value)||0;
+
+  var ebitda=revenue*ebitdaPct;
+
+  // Base multiples by revenue
+  var lowMult,highMult;
+  if(revenue<1000000){lowMult=3.0;highMult=4.0;}
+  else if(revenue<3000000){lowMult=4.0;highMult=6.0;}
+  else if(revenue<5000000){lowMult=5.0;highMult=7.0;}
+  else if(revenue<10000000){lowMult=6.0;highMult=8.0;}
+  else{lowMult=7.0;highMult=10.0;}
+
+  var adjustments=[];
+
+  // Recurring revenue adjustment
+  var recAdj=0;
+  if(recurringPct<=30){recAdj=-1.0;adjustments.push({label:'Low recurring revenue ('+recurringPct+'%)',value:recAdj,note:'Very low for pest control - buyers expect 60%+'});}
+  else if(recurringPct<=50){recAdj=-0.5;adjustments.push({label:'Below-average recurring ('+recurringPct+'%)',value:recAdj,note:'Industry average is 60-80%'});}
+  else if(recurringPct<=70){recAdj=0;adjustments.push({label:'Average recurring ('+recurringPct+'%)',value:recAdj,note:'Solid foundation - push toward 80%+'});}
+  else if(recurringPct<=80){recAdj=0.5;adjustments.push({label:'Strong recurring ('+recurringPct+'%)',value:recAdj,note:'Above average - buyers love this'});}
+  else{recAdj=1.0;adjustments.push({label:'Elite recurring ('+recurringPct+'%)',value:recAdj,note:'Top tier - SaaS-level predictability'});}
+
+  // Service type adjustment
+  var svcAdj=0;
+  if(serviceType==='general'){svcAdj=0;adjustments.push({label:'General pest only',value:svcAdj,note:'Consider adding termite or wildlife'});}
+  else if(serviceType==='termite'){svcAdj=0.5;adjustments.push({label:'Termite / wood-destroying',value:svcAdj,note:'Premium specialty - strong demand'});}
+  else if(serviceType==='mixed'){svcAdj=0.75;adjustments.push({label:'Multi-service offering',value:svcAdj,note:'Highest value - multiple revenue streams'});}
+  else if(serviceType==='commercial'){svcAdj=0.5;adjustments.push({label:'Commercial focus',value:svcAdj,note:'Larger contracts, higher retention'});}
+  else if(serviceType==='wildlife'){svcAdj=0;adjustments.push({label:'Wildlife services',value:svcAdj,note:'Niche market - add pest for cross-sell'});}
+  else if(serviceType==='lawn'){svcAdj=0.25;adjustments.push({label:'Lawn care + pest combo',value:svcAdj,note:'Good cross-sell potential'});}
+
+  // Service area adjustment
+  var areaAdj=0;
+  if(serviceArea==='single'){areaAdj=0;adjustments.push({label:'Single metro area',value:areaAdj,note:'Strong route density potential'});}
+  else if(serviceArea==='multi-city'){areaAdj=0.25;adjustments.push({label:'Multi-city coverage',value:areaAdj,note:'Wider footprint attracts regional buyers'});}
+  else{areaAdj=0.5;adjustments.push({label:'Multi-state operations',value:areaAdj,note:'Premium - attracts national acquirers'});}
+
+  // Owner role adjustment
+  var ownerAdj=0;
+  if(ownerRole==='dependent'){ownerAdj=-1.0;adjustments.push({label:'Owner-dependent operations',value:ownerAdj,note:'Biggest risk factor for buyers'});}
+  else if(ownerRole==='key'){ownerAdj=-0.5;adjustments.push({label:'Owner makes key decisions',value:ownerAdj,note:'Transition risk - plan 12-18 months'});}
+  else{ownerAdj=0.5;adjustments.push({label:'Business runs independently',value:ownerAdj,note:'Major premium - buyers pay top dollar'});}
+
+  var totalAdj=recAdj+svcAdj+areaAdj+ownerAdj;
+  var adjLow=Math.max(1.5,lowMult+totalAdj);
+  var adjHigh=Math.max(2.0,highMult+totalAdj);
+  var midMult=(adjLow+adjHigh)/2;
+
+  var lowVal=ebitda*adjLow;
+  var highVal=ebitda*adjHigh;
+
+  // Display results
+  document.getElementById('valuationRange').textContent='$'+Math.round(lowVal).toLocaleString()+' - $'+Math.round(highVal).toLocaleString();
+  document.getElementById('multipleRange').textContent=adjLow.toFixed(1)+'x - '+adjHigh.toFixed(1)+'x EBITDA ($'+Math.round(ebitda).toLocaleString()+')';
+  document.getElementById('hiddenValuation').value=Math.round(lowVal)+'-'+Math.round(highVal);
+
+  // Build breakdown
+  var bd='<div style="padding:20px 0;border-bottom:1px solid #2a2a2a;">';
+  bd+='<p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#C9A84C;">Your Numbers</p>';
+  bd+='<div style="display:flex;justify-content:space-between;padding:8px 0;"><span style="color:#999;">Annual Revenue</span><span style="font-family:\'JetBrains Mono\',monospace;color:#f0f0f0;">$'+revenue.toLocaleString()+'</span></div>';
+  bd+='<div style="display:flex;justify-content:space-between;padding:8px 0;"><span style="color:#999;">EBITDA Margin</span><span style="font-family:\'JetBrains Mono\',monospace;color:#f0f0f0;">'+Math.round(ebitdaPct*100)+'%</span></div>';
+  bd+='<div style="display:flex;justify-content:space-between;padding:8px 0;"><span style="color:#999;">EBITDA (Your Profit)</span><span style="font-family:\'JetBrains Mono\',monospace;color:#f0f0f0;">$'+Math.round(ebitda).toLocaleString()+'</span></div>';
+  bd+='<div style="display:flex;justify-content:space-between;padding:8px 0;"><span style="color:#999;">Base Multiple Range</span><span style="font-family:\'JetBrains Mono\',monospace;color:#f0f0f0;">'+lowMult.toFixed(1)+'x - '+highMult.toFixed(1)+'x</span></div>';
+  bd+='</div>';
+  document.getElementById('breakdown').innerHTML=bd;
+
+  // Build adjustments
+  var aj='<div style="padding:20px 0 0;">';
+  aj+='<p style="margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#C9A84C;">Adjustments Applied</p>';
+  adjustments.forEach(function(a){
+    var color=a.value>0?'#34C759':a.value<0?'#FF3B30':'#999';
+    var prefix=a.value>0?'+':'';
+    aj+='<div style="padding:10px 0;border-bottom:1px solid #1f1f1f;">';
+    aj+='<div style="display:flex;justify-content:space-between;align-items:center;">';
+    aj+='<span style="color:#ccc;font-size:15px;">'+a.label+'</span>';
+    aj+='<span style="font-family:\'JetBrains Mono\',monospace;color:'+color+';font-size:15px;">'+prefix+a.value.toFixed(1)+'x</span>';
+    aj+='</div>';
+    aj+='<p style="margin:4px 0 0;color:#666;font-size:13px;">'+a.note+'</p>';
+    aj+='</div>';
+  });
+  aj+='<div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0 0;"><span style="color:#f0f0f0;font-weight:600;">Adjusted Multiple</span><span style="font-family:\'JetBrains Mono\',monospace;color:#C9A84C;font-weight:700;font-size:18px;">'+adjLow.toFixed(1)+'x - '+adjHigh.toFixed(1)+'x</span></div>';
+  aj+='</div>';
+  document.getElementById('adjustments').innerHTML=aj;
+
+  // Route density note
+  if(routes>0){
+    var revPerRoute=revenue/routes;
+    var rn=document.getElementById('routeNote');
+    var rnt=document.getElementById('routeNoteText');
+    rn.style.display='block';
+    rnt.textContent='Route Analysis: '+routes+' technicians generating $'+Math.round(revPerRoute).toLocaleString()+' per route annually. '+(revPerRoute>250000?'Strong route density - this signals operational efficiency to buyers.':revPerRoute>150000?'Average route density. Optimizing stops-per-day could increase this significantly.':'Below-average revenue per route. Route optimization could add meaningful value before a sale.');
+  }
+
+  document.getElementById('results').style.display='block';
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+
+  gtag('event','calculate_valuation',{event_category:'calculator',event_label:'pest-control',value:Math.round((lowVal+highVal)/2)});
+}
+
+async function handleUpgrade(e){
+  e.preventDefault();
+  var btn=document.getElementById('upgradeBtn');
+  btn.textContent='Submitting...';
+  btn.disabled=true;
+  btn.style.opacity='0.7';
+  try{
+    var res=await fetch('https://arena-api.jean-475.workers.dev/api/lead-capture/upgrade',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        name:document.getElementById('fullName').value,
+        phone:document.getElementById('phone').value,
+        valuation:document.getElementById('hiddenValuation').value,
+        source:'satellite-pest-control',
+        step:'training-unlock',
+        redirect:'training.html'
+      })
+    });
+    window.location.href='training.html';
+  }catch(err){
+    window.location.href='training.html';
+  }
+}
+</script>
+
+<style>
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#C9A84C;cursor:pointer;border:2px solid #0a0a0a;box-shadow:0 0 0 2px #C9A84C;}
+input[type="range"]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#C9A84C;cursor:pointer;border:2px solid #0a0a0a;box-shadow:0 0 0 2px #C9A84C;}
+@media(prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;scroll-behavior:auto !important;}}
+</style>
+
+</body>
+</html>
