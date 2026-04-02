@@ -261,7 +261,7 @@
 
     <form id="leadForm" onsubmit="return handleSubmit(event)" style="display:flex;flex-direction:column;gap:16px;">
       <input type="hidden" name="source" value="satellite-pest-control">
-      <input type="hidden" name="redirect" value="calculator.html">
+      <input type="hidden" name="redirect" value="https://thearenapartners.com">
 
       <div>
         <label for="email" style="display:block;margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;">Email Address</label>
@@ -369,16 +369,16 @@ async function handleSubmit(e){
       body:JSON.stringify({
         email:document.getElementById('email').value,
         source:'satellite-pest-control',
-        redirect:'calculator.html'
+        redirect:'https://thearenapartners.com'
       })
     });
     if(res.ok||res.status===201){
-      window.location.href='calculator.html';
+      window.location.href='https://thearenapartners.com';
     } else {
-      window.location.href='calculator.html';
+      window.location.href='https://thearenapartners.com';
     }
   }catch(err){
-    window.location.href='calculator.html';
+    window.location.href='https://thearenapartners.com';
   }
 }
 </script>
